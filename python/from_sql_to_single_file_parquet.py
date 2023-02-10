@@ -12,7 +12,6 @@ engine = sqlalchemy.create_engine('postgresql+psycopg2://exampleuser:examplepass
 batch_size = 100
 total_rows = pd.read_sql("SELECT count(*) FROM example_table", engine).iloc[0, 0]
 num_batches = total_rows // batch_size + (total_rows % batch_size > 0)
-schema = None
 
 for i in range(num_batches):
     start = i * batch_size
